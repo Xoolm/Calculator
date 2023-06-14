@@ -9,4 +9,4 @@
 ![JavaScript](https://img.shields.io/badge/-JavaScript-f7df1e?logo=javaScript&logoColor=black)
 
 ## Ссылки проекта
-Проект доступен по ссылке - *ссылка на GitHub Pages
+Проект доступен по ссылке - https://xoolm.github.io/Calculator/
