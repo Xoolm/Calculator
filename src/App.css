@@ -36,9 +36,12 @@
   height: 70px;
   background-color: black;
   color: white;
+  border-radius: 0px 0px 5px 5px;
+  padding: 0px 3px 0px 0px;
 }
 
 #expression {
+  border-radius: 5px 5px 0px 0px;
   border-bottom: solid 1px #4d2600;
   font-size: 18px;
   text-align: end;
@@ -46,6 +49,7 @@
   width: 100%;
   color: orange;
   font-weight: bold;
+  padding: 0px 3px 0px 0px;
 }
 
 #expression::placeholder {
