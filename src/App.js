@@ -29,9 +29,10 @@ function App() {
       const updatedState = state.slice(0, -1) + operator;
       setState(updatedState);
     } else {
-      setState(state + operator);
+      setState(state + " " + operator + " ");
     }
     console.log(lastElem);
+    console.log(arr);
   };
 
   const setEquals = (e) => {
@@ -42,14 +43,30 @@ function App() {
   const setDecimal = () => {
     const arr = state.toString().split(" ");
     const lastElem = arr[arr.length - 1];
-    if (!lastElem.includes(".") && isNaN(parseInt(lastElem)) === false) {
+    if (!lastElem.includes(".")) {
       setState(state + ".");
     }
   };
 
-  const setClear = () => {
+  const setBrackets = () => {
+    const all = state;
+    if (!all.includes("(")) {
+      setState(state + "(");
+    } else if (all.includes("(")) {
+      setState(state + ")");
+    }
+  };
+
+  const setAllClear = () => {
     setState(0);
     setAnswer(0);
+  };
+
+  const setClear = (prev) => {
+    setState((prev) => prev.slice(0, prev.length - 1));
+    if (prev.length <= 0) {
+      setState(0);
+    }
   };
 
   return (
@@ -59,72 +76,157 @@ function App() {
           <div id="expression">{state}</div>
           <div id="display">{answer}</div>
           <div className="buttons">
-            <button onClick={setClear} className="button" id="clear">
+            <button
+              style={{ gridArea: "Allclear" }}
+              onClick={setAllClear}
+              className="button"
+              id="Allclear"
+            >
               AC
             </button>
             <button
-              onClick={() => setOperator(" /")}
+              style={{ gridArea: "clear" }}
+              onClick={setClear}
+              className="button"
+              id="clear"
+            >
+              C
+            </button>
+            <button
+              style={{ gridArea: "brackets" }}
+              onClick={setBrackets}
+              className="button"
+              id="brackets"
+            >
+              ()
+            </button>
+            <button
+              style={{ gridArea: "divide" }}
+              onClick={() => setOperator("/")}
               className="button"
               id="divide"
             >
               /
             </button>
             <button
-              onClick={() => setOperator(" *")}
+              style={{ gridArea: "multiply" }}
+              onClick={() => setOperator("*")}
               className="button"
               id="multiply"
             >
               x
             </button>
-            <button onClick={setNumber} className="button" id="seven">
+            <button
+              style={{ gridArea: "seven" }}
+              onClick={setNumber}
+              className="button"
+              id="seven"
+            >
               7
             </button>
-            <button onClick={setNumber} className="button" id="eight">
+            <button
+              style={{ gridArea: "eight" }}
+              onClick={setNumber}
+              className="button"
+              id="eight"
+            >
               8
             </button>
-            <button onClick={setNumber} className="button" id="nine">
+            <button
+              style={{ gridArea: "nine" }}
+              onClick={setNumber}
+              className="button"
+              id="nine"
+            >
               9
             </button>
             <button
-              onClick={() => setOperator(" -")}
+              style={{ gridArea: "subtract" }}
+              onClick={() => setOperator("-")}
               className="button"
               id="subtract"
             >
               -
             </button>
-            <button onClick={setNumber} className="button" id="four">
+            <button
+              style={{ gridArea: "four" }}
+              onClick={setNumber}
+              className="button"
+              id="four"
+            >
               4
             </button>
-            <button onClick={setNumber} className="button" id="five">
+            <button
+              style={{ gridArea: "five" }}
+              onClick={setNumber}
+              className="button"
+              id="five"
+            >
               5
             </button>
-            <button onClick={setNumber} className="button" id="six">
+            <button
+              style={{ gridArea: "six" }}
+              onClick={setNumber}
+              className="button"
+              id="six"
+            >
               6
             </button>
             <button
-              onClick={() => setOperator(" +")}
+              style={{ gridArea: "add" }}
+              onClick={() => setOperator("+")}
               className="button"
               id="add"
             >
               +
             </button>
-            <button onClick={setNumber} className="button" id="one">
+            <button
+              style={{ gridArea: "one" }}
+              onClick={setNumber}
+              className="button"
+              id="one"
+            >
               1
             </button>
-            <button onClick={setNumber} className="button" id="two">
+            <button
+              style={{ gridArea: "two" }}
+              onClick={setNumber}
+              className="button"
+              id="two"
+            >
               2
             </button>
-            <button onClick={setNumber} className="button" id="three">
+            <button
+              style={{ gridArea: "three" }}
+              onClick={setNumber}
+              className="button"
+              id="three"
+            >
               3
             </button>
 
-            <button onClick={setEquals} className="button" id="equals">
+            <button
+              style={{ gridArea: "equals" }}
+              onClick={setEquals}
+              className="button"
+              id="equals"
+            >
               =
             </button>
-            <button onClick={setNumber} className="button" id="zero">
+            <button
+              style={{ gridArea: "zero" }}
+              onClick={setNumber}
+              className="button"
+              id="zero"
+            >
               0
             </button>
-            <button onClick={setDecimal} className="button" id="decimal">
+            <button
+              style={{ gridArea: "decimal" }}
+              onClick={setDecimal}
+              className="button"
+              id="decimal"
+            >
               .
             </button>
           </div>
